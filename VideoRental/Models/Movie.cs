@@ -13,7 +13,7 @@ namespace VideoRental.Models
         public DateTime AddedDate { get; set; }
         public int NumberInStock { get; set; }
 
-/*        public byte GenreId { get; set; }
-        public Genre Genre { get; set; }
+/*      public byte GenreId { get; set; }
+       public Genre Genre { get; set; }*/
     }
 }
