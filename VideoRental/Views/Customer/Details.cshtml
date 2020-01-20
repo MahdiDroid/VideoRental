@@ -1,0 +1,16 @@
+﻿@model  VideoRental.Models.Customer
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<h1>@Model.Name</h1>
+<h2>MembershipType : <span class=" text-primary "> @Model.MembershipType.Name  </span> </h2>
+@if (@Model.Birthdate != null)
+{
+    <h2>Birthdate : <span class=" text-primary"> @Model.Birthdate</span></h2>
+}
+
+
+
