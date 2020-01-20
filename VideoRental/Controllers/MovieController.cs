@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace VideoRental.Controllers
 {
@@ -18,7 +19,7 @@ namespace VideoRental.Controllers
         // GET: Movie
         public ActionResult Index()
         {
-            var movies = _Context.Movies.ToList();
+            var movies = _Context.Movies.Include(m => m.Genre).ToList();
             return View(movies);
             //return Content("Hallo everyone");
         }
