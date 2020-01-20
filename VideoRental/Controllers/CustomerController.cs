@@ -23,7 +23,7 @@ namespace VideoRental.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            //
+            
             var customers = _context.Customers.Include(c => c.MembershipType ).ToList();
 
 
@@ -39,9 +39,21 @@ namespace VideoRental.Controllers
             return View(viewModel);
         }
         [HttpPost]
-        public ActionResult Create(Customer customer)
+        public ActionResult Save(Customer customer)
         {
-            _context.Customers.Add(customer);
+            if (customer.Id == 0)
+            {
+                _context.Customers.Add(customer);
+            }
+            else
+            {
+                var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == customer.Id);
+                customerInDb.Name = customer.Name;
+                customerInDb.IsScubscribedToNewsletter = customer.IsScubscribedToNewsletter;
+                customerInDb.MembershipType = customer.MembershipType;
+                customerInDb.Birthdate = customer.Birthdate;
+            }
+
             _context.SaveChanges();
             return RedirectToAction("Index","Customer");
         }
@@ -58,6 +70,14 @@ namespace VideoRental.Controllers
                 MembershipTypes = _context.MembershipTypes.ToList()
             };
             return View("New", viewModel);
+        }
+     
+        public ActionResult Delete(int id)
+        { 
+            var CustomerForDelete = _context.Customers.SingleOrDefault(c => c.Id == id);
+            _context.Customers.Remove(CustomerForDelete);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
         public ActionResult Details(int id)
         {

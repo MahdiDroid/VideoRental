@@ -25,10 +25,9 @@
                 <td>@c.Id</td>
                 <td>@Html.ActionLink(@c.Name, $"Edit/{c.Id}") </td>
                 <td>@c.MembershipType.Name</td>
-
                 <td>@c.MembershipType.DiscountRate%</td>
-
-
+                <td>@Html.ActionLink("Delete", $"Delete/{c.Id}") </td>
+                
             </tr>
             }
         </tbody>
