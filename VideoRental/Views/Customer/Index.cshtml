@@ -4,6 +4,7 @@
 
     <h2>Customers</h2>
 
+    <a href="Customer/New" class="btn btn-info  active" role="button" aria-pressed="true">New Customer</a>
     <table class="table">
         <thead>
             <tr>
@@ -22,7 +23,7 @@
             <tr>
 
                 <td>@c.Id</td>
-                <td>@Html.ActionLink(@c.Name, $"Details/{c.Id}") </td>
+                <td>@Html.ActionLink(@c.Name, $"Edit/{c.Id}") </td>
                 <td>@c.MembershipType.Name</td>
 
                 <td>@c.MembershipType.DiscountRate%</td>

@@ -13,10 +13,14 @@ namespace VideoRental.Models
         [Required]
         [StringLength(200)]
         public string Name { get; set; }
+
         public bool IsScubscribedToNewsletter { get; set; }
 
+        [Display(Name="Membership Type")]
         public int MembershipTypeId { get; set; }
+
         public MembershipType MembershipType { get; set; }
+
         public DateTime? Birthdate { get; set; }
     }
 }
