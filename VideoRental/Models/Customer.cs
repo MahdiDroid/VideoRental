@@ -11,7 +11,7 @@ namespace VideoRental.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(200)]
+        [StringLength(255)]
         public string Name { get; set; }
 
         public bool IsScubscribedToNewsletter { get; set; }

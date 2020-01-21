@@ -27,6 +27,9 @@
                 <td>@c.MembershipType.Name</td>
                 <td>@c.MembershipType.DiscountRate%</td>
                 <td>@Html.ActionLink("Delete", $"Delete/{c.Id}") </td>
+                <td>
+                    <a href="/Customer/Delete/@c.Id" class="btn btn-danger  active" role="button" aria-pressed="true">Delete</a>
+                </td>
                 
             </tr>
             }
