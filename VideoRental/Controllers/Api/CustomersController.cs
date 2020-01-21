@@ -72,7 +72,7 @@ namespace VideoRental.Controllers.Api
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
-            _context.Customers.Remove(customerInDb)
+            _context.Customers.Remove(customerInDb);
             _context.SaveChanges();
 
         }
