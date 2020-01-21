@@ -24,7 +24,7 @@ namespace VideoRental.Controllers.Api
             return _context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>);
         }
         //Get /api/customers/id
-        public CustomerDto GetCstomer(int id)
+        public CustomerDto GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
             if (customer == null)
@@ -34,6 +34,7 @@ namespace VideoRental.Controllers.Api
             return Mapper.Map<Customer,CustomerDto> (customer);
         }
         //post /api/customers
+
         [HttpPost]
         public CustomerDto CreateCustomer(CustomerDto customerDto)
         {
@@ -48,7 +49,7 @@ namespace VideoRental.Controllers.Api
             return customerDto;
         }
         [HttpPut]
-         public void UpdateCustomer(int id,Customer customer)
+         public void UpdateCustomer(int id,CustomerDto customerDto)
         {
 /*            if (!ModelState.IsValid)
             {
@@ -60,10 +61,12 @@ namespace VideoRental.Controllers.Api
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
-            customerInDb.IsScubscribedToNewsletter = customer.IsScubscribedToNewsletter;
+
+            Mapper.Map<CustomerDto, Customer>(customerDto, customerInDb);
+ /*           customerInDb.IsScubscribedToNewsletter = customer.IsScubscribedToNewsletter;
             customerInDb.MembershipType = customer.MembershipType;
             customerInDb.Name = customer.Name;
-            customerInDb.Birthdate = customer.Birthdate;
+            customerInDb.Birthdate = customer.Birthdate;*/
             _context.SaveChanges();
 
         }
