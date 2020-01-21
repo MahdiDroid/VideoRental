@@ -35,10 +35,10 @@ namespace VideoRental.Controllers.Api
         [HttpPost]
         public Customer CreateCustomer(Customer customer)
         {
-            if (!ModelState.IsValid)
+/*            if (!ModelState.IsValid)
             {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
-            }
+            }*/
             _context.Customers.Add(customer);
             _context.SaveChanges();
             return customer;
@@ -46,10 +46,10 @@ namespace VideoRental.Controllers.Api
         [HttpPut]
          public void UpdateCustomer(int id,Customer customer)
         {
-            if (!ModelState.IsValid)
+/*            if (!ModelState.IsValid)
             {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
-            }
+            }*/
             
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
             if(customerInDb == null)
