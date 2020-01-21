@@ -42,7 +42,7 @@ namespace VideoRental.Controllers
         public ActionResult Save(Customer customer)
         {
             
-            if (!ModelState.IsValid)
+/*            if (!ModelState.IsValid)
             {
                 var viewModel = new NewCustomerViewModel
                 {
@@ -51,7 +51,7 @@ namespace VideoRental.Controllers
                 };
 
                 return View("New", viewModel);
-            }
+            }*/
 
 
             if (customer.Id == 0)
