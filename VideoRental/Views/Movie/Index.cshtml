@@ -4,8 +4,11 @@
 }
 
 <h2>Movies</h2>
+<a href="Movie/New" class="btn btn-info  active" role="button" aria-pressed="true">New Movie</a>
+
 
 <table class="table table-striped">
+    
     <thead>
         <tr>
 
@@ -17,12 +20,12 @@
     <tbody>
         @foreach (var m in Model)
         {
-        <tr>
-            <td>@m.Id</td>
-            <td>@Html.ActionLink(@m.Name, $"Details/{@m.Id}")</td>
+            <tr>
+                <td>@m.Id</td>
+                <td>@Html.ActionLink(@m.Name, $"Details/{@m.Id}")</td>
+                <td>@m.Genre.Name</td>
 
-            <td>@m.Genre.Name</td>
-        </tr>
+            </tr>
 
         }
 

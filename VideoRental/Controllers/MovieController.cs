@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using VideoRental.Models;
+using VideoRental.ViewModels;
 
 namespace VideoRental.Controllers
 {
@@ -27,6 +29,29 @@ namespace VideoRental.Controllers
         {
             var singleMovie = _Context.Movies.SingleOrDefault(m => m.Id == id);
             return View(singleMovie);
+        }
+
+        [HttpGet]
+        public ActionResult New()
+        {
+            var genre = _Context.Genres;
+            var viewmodel = new GenreViewModel
+            {
+                Genres = genre
+
+            };
+            //var genre = new Genre();
+            return View(genre);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+         {
+
+           _Context.Movies.Add(movie);
+            _Context.SaveChanges();
+
+            return RedirectToAction("Index", "Movie");
         }
     }
 }
